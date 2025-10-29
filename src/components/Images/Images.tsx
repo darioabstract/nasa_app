@@ -1,8 +1,9 @@
 import React from 'react';
+import { SearchBar } from '../SearchBar/SearchBar';
 
 export const Images = () => {
     return ( 
-        <div>Nasa</div>
+        <div><SearchBar/></div>
      );
 }
  
