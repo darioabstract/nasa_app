@@ -1,0 +1,23 @@
+.search {
+  position: relative;
+  width: 80%;
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1em solid black;
+}
+
+.queryWord {
+  width: 20%;
+  border: #fff solid 1em;
+  padding: 0.3em;
+  height: 0.4em;
+  border-radius: 1em 0 0 1em;
+  outline: none;
+}
+
+.searchButton {
+  width: 2.5%;
+  border-radius: 0 0.3em 0.3em 0;
+  background-color: coral;
+}

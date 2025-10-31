@@ -1,6 +1,6 @@
 import React from 'react';
 import "./NavBar.css";
-import { NavBarStructure } from '../../utitlities/utility';
+import { NavBarStructure } from '../../utilities/utility';
 import { NavLink } from 'react-router-dom';
 
 export const NavBar = () => {
@@ -9,7 +9,7 @@ export const NavBar = () => {
             <ul className='nav'>
                 {NavBarStructure.map((el, index) => {
                     return (
-                        <li>
+                        <li key={index}>
                             <NavLink to={el.to}>{el.link}</NavLink>
                         </li>
                     )
