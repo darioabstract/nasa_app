@@ -10,15 +10,16 @@ import { NasaData } from './type/appTypes';
 
 
 export const App = () => {
-      const [nasamedia, setNasaMedia] = useState<NasaData | []>([]);
+      const [nasamedia, setNasaMedia] = useState<NasaData[]>([]);
   
   
   useEffect(() => {
     apiCall.get(`search?q=moon`).then((res) => {
       const results = res.data.collection.items;
       console.log(results)
+      setNasaMedia(results);
     })
-  })
+  }, [])
 
 
   return (
@@ -27,7 +28,7 @@ export const App = () => {
       <NavBar />
       <Routes>
         <Route path="/home" element={<Home />} />
-        <Route path="/images" element={<Images  />} />
+        <Route path="/images" element={<Images data={nasamedia} />} />
       </Routes>
       <SearchBar />
     </div>
