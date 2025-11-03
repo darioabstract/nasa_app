@@ -1,3 +1,8 @@
-.data {
+.card_title,
+.image {
   color: white;
+}
+
+.no_image {
+  color: red;
 }

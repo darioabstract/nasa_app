@@ -11,6 +11,17 @@ export interface SearchBarProps {
 
 export interface NasaData {
   data: NasaObjectResult[];
+  href: string;
+  links: LinksObject[];
+}
+
+export interface LinksObject {
+  height: number;
+  href: string;
+  rel: string;
+  render: string;
+  size: number;
+  width: number;
 }
 
 export interface NasaObjectResult {

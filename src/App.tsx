@@ -16,8 +16,11 @@ export const App = () => {
   useEffect(() => {
     apiCall.get(`search?q=moon`).then((res) => {
       const results = res.data.collection.items;
-      console.log(results)
       setNasaMedia(results);
+      const filteredImages = results.filter((images:any) => images.data[0].media_type === 'image');
+      console.log("images", filteredImages)
+      const images = filteredImages.map((image: any) => image.links[1].href)
+      console.log('nasa', images)
     })
   }, [])
 
