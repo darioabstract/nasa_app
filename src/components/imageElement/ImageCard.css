@@ -1,0 +1,33 @@
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: auto;
+  text-align: center;
+  font-family: arial;
+  border: 0.2em solid rgb(15, 129, 243);
+  background-color: blanchedalmond;
+  border-radius: 1em;
+  width: 17em;
+}
+
+.card {
+  margin: 2em;
+}
+
+.cards_container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.image_container img {
+  height: 9em;
+  width: 16em;
+  border-radius: 1em;
+  border: solid 0.1em white;
+}
+
+.image_not_available {
+  height: 9em;
+  width: 18em;
+}

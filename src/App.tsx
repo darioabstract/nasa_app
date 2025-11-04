@@ -6,7 +6,7 @@ import { Images } from "./components/Images/Images";
 import { SearchBar } from './components/SearchBar/SearchBar';
 import './App.css';
 import apiCall from './api/apiCall';
-import { NasaData } from './type/appTypes';
+import { LinksObject, NasaData } from './type/appTypes';
 
 
 export const App = () => {
@@ -17,23 +17,22 @@ export const App = () => {
     apiCall.get(`search?q=moon`).then((res) => {
       const results = res.data.collection.items;
       setNasaMedia(results);
-      const filteredImages = results.filter((images:any) => images.data[0].media_type === 'image');
-      console.log("images", filteredImages)
-      const images = filteredImages.map((image: any) => image.links[1].href)
-      console.log('nasa', images)
-    })
-  }, [])
+      const filteredImages = results.filter((item: any) => item.data[0].media_type === 'image');
+      console.log('filter', results);
+      const images = filteredImages.map((image: any) => image.links[1].href);
+    });
+  }, []);
 
 
   return (
 
     <div className="App">
       <NavBar />
+      <SearchBar />
       <Routes>
         <Route path="/home" element={<Home />} />
         <Route path="/images" element={<Images data={nasamedia} />} />
       </Routes>
-      <SearchBar />
     </div>
 
   );
