@@ -7,17 +7,25 @@
   border: 1em solid black;
 }
 
-.queryWord {
-  width: 20%;
-  border: #fff solid 1em;
-  padding: 0.3em;
-  height: 0.4em;
-  border-radius: 1em 0 0 1em;
-  outline: none;
+input {
+  width: 40%;
+  border-radius: 4px;
+  padding: 16px;
+  padding-right: 40px;
+  font-size: 16px;
+  text-overflow: ellipsis;
 }
 
 .searchButton {
   width: 2.5%;
   border-radius: 0 0.3em 0.3em 0;
   background-color: coral;
+}
+
+.clear_input {
+  position: absolute;
+  right: 47em;
+  top: 1.3em;
+  width: 3em;
+  height: 3em;
 }

@@ -24,12 +24,16 @@ export const App = () => {
     setNasaMedia(filteredImages);
   };
 
+  const handleClick = () => {
+    setQueryValue('');
+  }
+
 
   return (
 
     <div className="App">
       <NavBar />
-      <SearchBar queryValue={queryValue} setQueryValue={setQueryValue } handleSubmit={handleSubmit}/>
+      <SearchBar queryValue={queryValue} setQueryValue={setQueryValue} handleSubmit={handleSubmit} handleClick={handleClick} />
       <Routes>
         <Route path="/home" element={<Home />} />
         <Route path="/images" element={<Images data={nasamedia} />} />

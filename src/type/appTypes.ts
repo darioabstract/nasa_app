@@ -7,6 +7,7 @@ export interface SearchBarProps {
   queryValue: string;
   setQueryValue: (queryValue: string) => void;
   handleSubmit?: (e: React.FormEvent<HTMLFormElement>) => void;
+  handleClick?: (e: React.MouseEvent<HTMLDivElement>) => void;
 }
 
 export interface NasaData {

@@ -2,11 +2,8 @@ import React from 'react';
 import { NasaData } from '../../type/appTypes';
 import "./ImageCard.css"
 
-export const ImageCard = ({ data }: { data: NasaData[] }) => {
-    console.log('data', data)
-  
+export const ImageCard = ({ data }: { data: NasaData[] }) => {  
 
-  
     return (
         <div className='cards_container'>
             {data.map((item) => {
