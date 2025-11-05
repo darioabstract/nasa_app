@@ -15,10 +15,10 @@ export const ImageCard = ({ data }: { data: NasaData[] }) => {
                     <div className='card'>
                             <div className='image_container'>{item.links.map((img) => {
                                 return (
-                                    img.href.endsWith('small.jpg') &&
-                                        <img src={img.href ? img.href : "https://www.runningin.info/wp-content/uploads/2018/07/no-image.jpg"} alt='nasa_img' />                 )
+                                    img && img.href.endsWith('thumb.jpg') &&
+                                        <img src={img.href} alt='nasa_img' />                 )
                             })}</div>
-                            <h1>{item.data[0].title}</h1>
+                            <div className='title'>{item.data[0].title}</div>
                     </div>
                )
            })}

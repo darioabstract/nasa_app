@@ -5,8 +5,8 @@ export enum AppUrls {
 
 export interface SearchBarProps {
   queryValue: string;
-  setQueryValue: (text: string) => void;
-  handleSubmit: (e: React.MouseEvent<HTMLButtonElement>) => void;
+  setQueryValue: (queryValue: string) => void;
+  handleSubmit?: (e: React.FormEvent<HTMLFormElement>) => void;
 }
 
 export interface NasaData {

@@ -7,7 +7,7 @@
   border: 0.2em solid rgb(15, 129, 243);
   background-color: blanchedalmond;
   border-radius: 1em;
-  width: 17em;
+  width: 16.2em;
 }
 
 .card {
@@ -21,7 +21,7 @@
 }
 
 .image_container img {
-  height: 9em;
+  height: 12em;
   width: 16em;
   border-radius: 1em;
   border: solid 0.1em white;
@@ -30,4 +30,9 @@
 .image_not_available {
   height: 9em;
   width: 18em;
+}
+
+.title {
+  font-size: 1.6em;
+  font-weight: 800;
 }
