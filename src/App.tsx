@@ -1,18 +1,22 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { NavBar } from './components/NavBar/NavBar';
 import { Routes, Route } from 'react-router-dom';
 import { Home } from "./components/Home/Home";
 import { Images } from "./components/Images/Images";
 import { SearchBar } from './components/SearchBar/SearchBar';
+import axios from 'axios';
 import './App.css';
 import apiCall from './api/apiCall';
 import {  NasaData } from './type/appTypes';
-import getImages from './hooks/getImages';
 
 
 export const App = () => {
   const [nasamedia, setNasaMedia] = useState<NasaData[]>([]);
   const [queryValue, setQueryValue] = useState<string>('');
+
+  const api_key = process.env.REACT_APP_API_KEY;
+  console.log(api_key)
+
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -28,15 +32,13 @@ export const App = () => {
     setQueryValue('');
   }
 
-
   return (
 
     <div className="App">
       <NavBar />
-      <SearchBar queryValue={queryValue} setQueryValue={setQueryValue} handleSubmit={handleSubmit} handleClick={handleClick} />
       <Routes>
         <Route path="/home" element={<Home />} />
-        <Route path="/images" element={<Images data={nasamedia} />} />
+        <Route path="/images" element={<Images data={nasamedia} queryValue={queryValue} setQueryValue={setQueryValue} handleSubmit={handleSubmit} handleClick={handleClick}/>} />
       </Routes>
     </div>
 
