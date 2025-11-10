@@ -7,24 +7,26 @@
 }
 
 input {
-  width: 40%;
+  width: 6em;
+  height: 0.2em;
   border-radius: 4px;
   padding: 16px;
   padding-right: 40px;
   font-size: 16px;
   text-overflow: ellipsis;
+  outline: none;
 }
 
 .searchButton {
-  width: 2.5%;
+  /* width: 2.5%; */
   border-radius: 0 0.3em 0.3em 0;
   background-color: coral;
 }
 
 .clear_input {
   position: absolute;
-  right: 47em;
-  top: 1.3em;
+  left: 8em;
+  top: 0.8em;
   width: 3em;
   height: 3em;
 }
