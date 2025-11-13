@@ -1,26 +1,35 @@
 import React from 'react';
-import { NasaData } from '../../type/appTypes';
+import { NasaCard } from '../../type/appTypes';
 import "./ImageCard.css"
 
 
-export const ImageCard =  ({ data }: { data: NasaData[] }) => {
-  
-    
+export const ImageCard = ({ data }: { data: NasaCard[] }) => {
+    console.log('data',data)
+
+    const IMAGE_NOTFOUND_PLACEHOLDER = 'https://nftcalendar.io/storage/uploads/2022/02/21/image-not-found_0221202211372462137974b6c1a.png'
+
+
 
     return (
         <>
 
             {data ? <div className='cards_container'>
-                {data.map((item) => {
+                {data.map((item, index) => {
                     return (
-                        item.data[0].media_type === 'image' &&
-                        <div className='card'>
-                            <div className='image_container'>{item.links.map((img) => {
-                                return (
-                                    img && img.href.endsWith('thumb.jpg') &&
-                                    <img className="nasa_img" src={img.href} alt='nasa_img' loading='lazy' />)
-                            })}</div>
-                            <div className='title'>{item.data[0].title}</div>
+                        <div key={index} className='card'>
+                            <div className='image_container'>
+
+
+                                <img
+                                    className="nasa_img"
+                                    src={item.thumbUrl || IMAGE_NOTFOUND_PLACEHOLDER}
+                                    alt={item.title || 'Nasa Image'}
+                                    loading='lazy'
+                                    onError={(e) => e.currentTarget.src = IMAGE_NOTFOUND_PLACEHOLDER}
+                                />
+                                
+                            </div>
+                            <div className='title'>{item.title || 'Title unavailable'}</div>
                         </div>
                     )
                 })}

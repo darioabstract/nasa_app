@@ -34,3 +34,8 @@ export interface NasaObjectResult {
   nasa_id: string;
   title: string;
 }
+
+export interface NasaCard {
+  title: string;
+  thumbUrl: string;
+}
