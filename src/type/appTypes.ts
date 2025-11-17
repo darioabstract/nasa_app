@@ -1,6 +1,7 @@
 export enum AppUrls {
   HOME = "/home",
   IMAGES = "/images",
+  APOD = "/apod",
 }
 
 export interface SearchBarProps {
