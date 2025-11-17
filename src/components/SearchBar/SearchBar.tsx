@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { FaSearch } from "react-icons/fa";
 import { SearchBarProps } from '../../type/appTypes';
 import { MdClear } from "react-icons/md";
