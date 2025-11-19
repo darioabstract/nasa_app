@@ -4,11 +4,8 @@ import "./ImageCard.css"
 
 
 export const ImageCard = ({ data }: { data: NasaCard[] }) => {
-    console.log('data',data)
 
     const IMAGE_NOTFOUND_PLACEHOLDER = 'https://nftcalendar.io/storage/uploads/2022/02/21/image-not-found_0221202211372462137974b6c1a.png'
-
-
 
     return (
         <>

@@ -1,7 +1,6 @@
 import { LinksObject, NasaCard, NasaData } from "../type/appTypes";
 
 export const normalizeNasaImages = (results: NasaData[]): NasaCard[] => {
-  console.log(results, "results");
   return results
     .filter((item) => item.data[0].media_type === "image")
     .map((item) => {
