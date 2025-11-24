@@ -3,6 +3,7 @@ import pokemonApiCall from '../../api/pokemonApiCall';
 import axios from 'axios';
 import "./Pokemon.css";
 import { getPokemon } from '../../hooks/getPokemon';
+import { PokemonCard } from '../PokemonCard/PokemonCard';
 
 
 export const Pokemon = () => {
@@ -21,16 +22,16 @@ export const Pokemon = () => {
     fetchPokemon();
    }, []); 
     
-    console.log('pokemon', pokemon)
     
  
     
     return (
         <>
-            {pokemon && <div className='pokemon_card'>
+            
+            {pokemon && <div className='main_container'>
                 {pokemon.map((pok: any, index: number) => {
                     return (
-                        <div>{pok.name}</div>
+                        <PokemonCard pok={pok} />
                     )
                 })}
             </div>}

@@ -1,7 +1,21 @@
-.pokemon_title {
-  text-align: center;
-  color: azure;
-  font-weight: 500;
-  font-size: 3em;
-  margin: 3em;
+.main_container {
+  max-width: 100%;
+  max-width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1em;
+  display: grid;
+  gap: 1rem;
+}
+
+@media (min-width: 600px) {
+  .main_container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 900px) {
+  .main_container {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }

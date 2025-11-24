@@ -8,7 +8,7 @@ export const normalizePokemon = async (PokemongenOne: any) => {
           const res = await axios.get(item.url);
 
           const title = res.data.name;
-          const mainImage = res.data.sprites.front_default;
+          const mainImage = res.data.sprites.other.dream_world.front_default;
 
           return {
             name: title || "Untitled",

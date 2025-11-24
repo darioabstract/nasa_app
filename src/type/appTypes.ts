@@ -325,3 +325,10 @@ export interface PokemonSprites {
   other: PokemonSpritesOther;
   versions: PokemonSpritesVersions;
 }
+
+/*Pokemon final object */
+
+export interface PokemonFinalObject {
+  name: string;
+  mainImage: string;
+}
