@@ -6,7 +6,6 @@ export const getPokemon = async () => {
     const res = await pokemonApiCall.get(`pokemon`);
 
     const PokemongenOne = res.data;
-    console.log(PokemongenOne);
 
     const simplifiedPokemonData = normalizePokemon(PokemongenOne);
 

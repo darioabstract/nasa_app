@@ -3,6 +3,7 @@ import "./PokemonCard.css";
 import { PokemonFinalObject } from '../../type/appTypes';
 
 export const PokemonCard = ({ pok }: { pok: PokemonFinalObject }) => {
+    console.log("pok", pok)
     const IMAGE_NOTFOUND_PLACEHOLDER = 'https://nftcalendar.io/storage/uploads/2022/02/21/image-not-found_0221202211372462137974b6c1a.png'
     return ( 
       <div  className='card'>

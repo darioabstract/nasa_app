@@ -1,27 +1,26 @@
 import axios from "axios";
+import { Pokemon, PokemonResults } from "../type/appTypes";
 
-export const normalizePokemon = async (PokemongenOne: any) => {
+export const normalizePokemon = async (PokemongenOne: Pokemon) => {
   try {
     const normalizedData = await Promise.all(
-      PokemongenOne.results.map(async (item: any) => {
+      PokemongenOne.results.map(async (item: PokemonResults) => {
         try {
           const res = await axios.get(item.url);
 
           const title = res.data.name;
           const mainImage = res.data.sprites.other.dream_world.front_default;
+          const retrieveDetailsObject = res.data.species.url;
+          const resDescription = await axios.get(`${retrieveDetailsObject}`);
+          const description =
+            resDescription.data.flavor_text_entries[0].flavor_text;
 
           return {
             name: title || "Untitled",
             mainImage: mainImage || "Image Not Found!",
+            description: description || "No description available",
           };
-        } catch (error) {
-          console.error("Error fetching details for", item.name, error);
-
-          return {
-            name: item.name || "Unknown Pokémon",
-            mainImage: "Image Not Available",
-          };
-        }
+        } catch (error) {}
       })
     );
 
@@ -31,17 +30,3 @@ export const normalizePokemon = async (PokemongenOne: any) => {
     return [];
   }
 };
-
-//   return PokemongenOne.results.map((item: any) => {
-//     return axios
-//       .get(`${item.url}`)
-//       .then((res) => {
-//         const title = res.data.name;
-//         const mainImage = res.data.sprites.front_default;
-//         return {
-//           name: title || "Untitled",
-//           mainImage: mainImage || "Image Not Found!",
-//         };
-//       })
-//       .catch((error) => console.log(error));
-//   });

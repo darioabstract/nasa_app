@@ -331,4 +331,5 @@ export interface PokemonSprites {
 export interface PokemonFinalObject {
   name: string;
   mainImage: string;
+  description: string;
 }
