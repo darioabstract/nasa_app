@@ -1,17 +1,27 @@
 .nav {
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  border-bottom: #fff solid 0.2em;
+  align-items: center;
+  width: 100%;
+  border-bottom: 0.2em solid #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  padding: 1em;
+  box-sizing: border-box;
 }
 
 li {
   list-style: none;
-  margin-left: 1em;
+  margin-left: 1.3em;
   font-weight: 800;
 }
 
 a {
   text-decoration: none;
   color: #fff;
+}
+
+a:hover {
+  color: #ffd700;
 }

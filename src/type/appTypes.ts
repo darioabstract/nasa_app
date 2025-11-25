@@ -3,6 +3,7 @@ export enum AppUrls {
   IMAGES = "/images",
   APOD = "/apod",
   POKEMON = "/pokemon",
+  POKEMON_DETAILS = "/pokemon/pokemon_details",
 }
 
 export interface SearchBarProps {
@@ -329,6 +330,7 @@ export interface PokemonSprites {
 /*Pokemon final object */
 
 export interface PokemonFinalObject {
+  id: number;
   name: string;
   mainImage: string;
   description: string;

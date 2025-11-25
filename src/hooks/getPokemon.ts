@@ -15,3 +15,5 @@ export const getPokemon = async () => {
     return [];
   }
 };
+
+export const getSinglePokemon = async () => {};
