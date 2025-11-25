@@ -2,13 +2,15 @@
   display: flex;
   align-items: center;
   width: 100%;
-  border-bottom: 0.2em solid #fff;
+  border-bottom: 0.2em solid #000;
   position: fixed;
   top: 0;
   left: 0;
   z-index: 1000;
   padding: 1em;
   box-sizing: border-box;
+  background-color: #ffd700;
+  margin-top: 0;
 }
 
 li {
@@ -19,9 +21,9 @@ li {
 
 a {
   text-decoration: none;
-  color: #fff;
+  color: #000;
 }
 
 a:hover {
-  color: #ffd700;
+  color: #000;
 }

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { NasaCard } from '../../type/appTypes';
-import { ImageCard } from '../imageElement/ImageCard';
+import { ImageCard } from '../imageCard/ImageCard';
 import "./Images.css";
 import { SearchBar } from '../SearchBar/SearchBar';
 import { getImages } from '../../hooks/getImages';

@@ -1,0 +1,13 @@
+.name {
+  color: white;
+  font-weight: 500;
+  font-size: 3em;
+}
+
+.pokemon_details_card {
+  text-align: center;
+}
+
+.description {
+  color: white;
+}
