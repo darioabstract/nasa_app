@@ -333,5 +333,17 @@ export interface PokemonFinalObject {
   id: number;
   name: string;
   mainImage: string;
+}
+
+export interface PokemonDetailsImages {
+  One: string;
+  Two: string;
+  Three: string;
+}
+
+export interface PokemonDetailsObject {
+  id: number;
+  name: string;
   description: string;
+  images: PokemonDetailsImages;
 }
