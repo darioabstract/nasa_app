@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { PokemonFinalObject } from '../../type/appTypes';
 import { useNavigate } from "react-router";
 import "./PokemonCard.css";

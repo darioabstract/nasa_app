@@ -1,19 +1,18 @@
 import React, { useEffect, useState } from 'react';
-import pokemonApiCall from '../../api/pokemonApiCall';
-import axios from 'axios';
 import "./Pokemon.css";
 import { getPokemon } from '../../hooks/getPokemon';
 import { PokemonCard } from '../PokemonCard/PokemonCard';
+import { PokemonFinalObject } from '../../type/appTypes';
 
 
 export const Pokemon = () => {
-    const [pokemon, setPokemon] = useState<any>();
+    const [pokemon, setPokemon] = useState<PokemonFinalObject[]>();
 
    useEffect(() => {
     const fetchPokemon = async () => {
       try {
           const pokemonData = await getPokemon(); 
-          setPokemon(pokemonData);
+          setPokemon(pokemonData as PokemonFinalObject[] | undefined);
       } catch (error) {
         console.error("Error fetching Pokemon:", error);
       }
@@ -21,16 +20,11 @@ export const Pokemon = () => {
 
     fetchPokemon();
    }, []); 
-    
-    
-    
- 
-    
+           
     return (
-        <>
-            
+        <>          
             {pokemon && <div className='main_container'>
-                {pokemon.map((pok: any, index: number) => {
+                {pokemon.map((pok: PokemonFinalObject, index: number) => {
                     return (
                         <PokemonCard pok={pok} />
                     )

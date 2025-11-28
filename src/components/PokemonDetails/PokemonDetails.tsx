@@ -9,12 +9,10 @@ import { Navigation, Pagination } from "swiper";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-
-
-
+import { PokemonDetailsObject } from '../../type/appTypes';
 
 export const PokemonDetails = () => {
-    const [pokemonDetails, setPokemonDetails] = useState<any>();
+    const [pokemonDetails, setPokemonDetails] = useState<PokemonDetailsObject |null>(null);
     const params = useParams();
 
     useEffect(() => {
@@ -29,6 +27,8 @@ export const PokemonDetails = () => {
 
         fetchPokemonDetails();
     }, [params.id]);
+
+    console.log(pokemonDetails)
 
     return (
         <>
@@ -48,15 +48,15 @@ export const PokemonDetails = () => {
                             loop={false}
                         >
                             <SwiperSlide>
-                                <img className="img_one" src={pokemonDetails.images.One} alt="img_one" />
+                                <img className="img_one" src={pokemonDetails.images.One} alt={`img_one_${pokemonDetails.name}`} />
                             </SwiperSlide>
 
                             <SwiperSlide>
-                                <img className="img_two" src={pokemonDetails.images.Two} alt="img_two" />
+                                <img className="img_two" src={pokemonDetails.images.Two} alt={`img_two_${pokemonDetails.name}`} />
                             </SwiperSlide>
 
                             <SwiperSlide>
-                                <img className="img_three" src={pokemonDetails.images.Three} alt="img_three" />
+                                <img className="img_three" src={pokemonDetails.images.Three} alt={`img_three_${pokemonDetails.name}`} />
                             </SwiperSlide>
                         </Swiper>
                     </Suspense>

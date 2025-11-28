@@ -1,18 +1,40 @@
-import pokemonApiCall from "../api/pokemonApiCall";
-import { normalizePokemonDetails } from "../normalizer/PokemonDetailsNormalizer";
+import { PokemonDetailsObject } from "../type/appTypes";
 
-export const getPokemonDetails = async (id: number) => {
+export async function getPokemonDetails(
+  id: number
+): Promise<PokemonDetailsObject | null> {
   try {
-    const res = await pokemonApiCall.get(`pokemon/${id}`);
+    const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
+    if (!response.ok) return null;
 
-    const PokemongenOne = res.data;
-    console.log(PokemongenOne, "data");
+    const pokemon = await response.json();
 
-    const simplifiedPokemonDetailsData = normalizePokemonDetails(PokemongenOne);
+    const speciesResponse = await fetch(pokemon.species.url);
+    if (!speciesResponse.ok) return null;
 
-    return simplifiedPokemonDetailsData;
+    const species = await speciesResponse.json();
+    const descriptionEntry = species.flavor_text_entries.find(
+      (entry: any) => entry.language.name === "en"
+    );
+
+    const description = descriptionEntry
+      ? descriptionEntry.flavor_text
+      : "No description available.";
+
+    const result: PokemonDetailsObject = {
+      id: pokemon.id,
+      name: pokemon.name,
+      description: description.replace(/\n|\f/g, " "),
+      images: {
+        One: pokemon.sprites.other["official-artwork"].front_default,
+        Two: pokemon.sprites.other["home"].front_default,
+        Three: pokemon.sprites.other["dream_world"].front_default,
+      },
+    };
+
+    return result;
   } catch (error) {
-    console.error("Error fetching Pokémon:", error);
-    return [];
+    console.error("Error in getPokemonDetails:", error);
+    return null;
   }
-};
+}
