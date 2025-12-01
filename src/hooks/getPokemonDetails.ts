@@ -1,4 +1,8 @@
-import { PokemonDetailsObject } from "../type/appTypes";
+import {
+  PokemonDetailsObject,
+  PokemonSpecies,
+  PokemonFlavorTextEntry,
+} from "../type/appTypes";
 
 export async function getPokemonDetails(
   id: number
@@ -12,27 +16,26 @@ export async function getPokemonDetails(
     const speciesResponse = await fetch(pokemon.species.url);
     if (!speciesResponse.ok) return null;
 
-    const species = await speciesResponse.json();
+    const species: PokemonSpecies = await speciesResponse.json();
+
     const descriptionEntry = species.flavor_text_entries.find(
-      (entry: any) => entry.language.name === "en"
+      (entry: PokemonFlavorTextEntry) => entry.language.name === "en"
     );
 
     const description = descriptionEntry
-      ? descriptionEntry.flavor_text
+      ? descriptionEntry.flavor_text.replace(/\n|\f/g, " ")
       : "No description available.";
 
-    const result: PokemonDetailsObject = {
+    return {
       id: pokemon.id,
       name: pokemon.name,
-      description: description.replace(/\n|\f/g, " "),
+      description,
       images: {
         One: pokemon.sprites.other["official-artwork"].front_default,
         Two: pokemon.sprites.other["home"].front_default,
         Three: pokemon.sprites.other["dream_world"].front_default,
       },
     };
-
-    return result;
   } catch (error) {
     console.error("Error in getPokemonDetails:", error);
     return null;

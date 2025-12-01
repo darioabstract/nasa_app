@@ -330,7 +330,6 @@ export interface PokemonSprites {
 /*Pokemon final object */
 
 export interface PokemonFinalObject {
-  description: string;
   id: number;
   name: string;
   mainImage: string;
@@ -347,4 +346,19 @@ export interface PokemonDetailsObject {
   name: string;
   description: string;
   images: PokemonDetailsImages;
+}
+
+export interface PokemonSpeciesLanguage {
+  name: string;
+  url: string;
+}
+
+export interface PokemonFlavorTextEntry {
+  flavor_text: string;
+  language: PokemonSpeciesLanguage;
+  version: PokemonSpeciesLanguage;
+}
+
+export interface PokemonSpecies {
+  flavor_text_entries: PokemonFlavorTextEntry[];
 }

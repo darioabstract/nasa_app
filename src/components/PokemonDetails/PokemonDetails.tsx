@@ -28,8 +28,6 @@ export const PokemonDetails = () => {
         fetchPokemonDetails();
     }, [params.id]);
 
-    console.log(pokemonDetails)
-
     return (
         <>
             {pokemonDetails &&

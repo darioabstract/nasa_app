@@ -10,16 +10,11 @@ export const normalizePokemon = async (PokemongenOne: Pokemon) => {
           const PokemonId = res.data.id;
           const title = res.data.name;
           const mainImage = res.data.sprites.other.dream_world.front_default;
-          const retrieveDetailsObject = res.data.species.url;
-          const resDescription = await axios.get(`${retrieveDetailsObject}`);
-          const description =
-            resDescription.data.flavor_text_entries[0].flavor_text;
 
           return {
             id: PokemonId,
             name: title || "Untitled",
             mainImage: mainImage || "Image Not Found!",
-            description: description || "No description available",
           };
         } catch (error) {}
       })
